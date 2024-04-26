@@ -53,7 +53,7 @@ function check_geth_evm(){
        check_node
 
 
-       cd ./zkevm-contracts && npm i && npm run docker:contracts
+       cd ./contracts && npm install --save-dev hardhat && npm i && npx hardhat compile && npm run docker:contracts
 
        sleep 2
 
