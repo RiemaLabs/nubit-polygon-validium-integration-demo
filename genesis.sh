@@ -2,6 +2,7 @@
 
 work=$(pwd)
 function generate_genesis() {
+    check_jq
     deploy_output=${work}/contracts/docker/deploymentOutput/deploy_output.json
     genesis=${work}/contracts/docker/deploymentOutput/genesis.json
 #     create_rollup_output=${work}/contracts/docker/deploymentOutput/create_rollup_output.json
@@ -55,6 +56,24 @@ update_genesis_json_obj() {
     local value="$2"
     echo "Updating $key to $value in $genesis_cfg"
     jq --argjson val "$value" ".$key = \$val" "$genesis_cfg" > temp_genesis.json && mv temp_genesis.json "$genesis_cfg"
+}
+
+check_jq() {
+    if ! command -v jq &> /dev/null; then
+        echo "jq is not installed. Installing now..."
+        sudo apt-get update
+
+        sudo apt-get install -y jq
+
+        if [ $? -eq 0 ]; then
+            echo "jq has been successfully installed."
+        else
+            echo "Failed to install jq. Please check your internet connection or package repository."
+            exit 1
+        fi
+    else
+        echo "jq is already installed."
+    fi
 }
 
 generate_genesis
