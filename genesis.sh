@@ -17,7 +17,7 @@ function generate_genesis() {
 #     genesis ==> genesis @ genesis.json
 
     rollupAddress=$(cat "$create_rollup_output" | jq -r '.rollupAddress')
-    createRollupBlock=$(cat "$create_rollup_output" | jq -r '.createRollupBlock')
+    createRollupBlock=$(cat "$create_rollup_output" | jq -r '.createRollupBlockNumber')
 
 
     polygonRollupManager=$(cat "$deploy_output" | jq -r '.polygonRollupManagerAddress')
