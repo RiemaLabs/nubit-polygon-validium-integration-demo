@@ -35,6 +35,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
       - ./:/datastreamer
     command:
       - "/bin/sh"
@@ -60,6 +61,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -86,6 +88,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -130,6 +133,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -154,6 +158,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -178,6 +183,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -197,6 +203,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -367,6 +374,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -470,6 +478,7 @@ services:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
       - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
     networks:
