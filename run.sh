@@ -65,9 +65,7 @@ function check_geth_evm(){
 
 
 check_node() {
-    node_version=$(node --version 2>/dev/null)
-
-    if [ $? -ne 0 ]; then
+    if ! command -v node &> /dev/null; then
         echo "Node.js is not installed. Installing v20..."
         install_node_v20
     else
@@ -85,10 +83,7 @@ check_node() {
 }
 
 check_nvm() {
-    nvm_version=$(nvm --version 2>/dev/null)
-
-    echo "nvm_version: ${nvm_version}"
-    if [ $? -ne 0 ]; then
+    if ! command -v nvm &> /dev/null; then
          echo "NVM is not installed. Installing NVM..."
          install_nvm
     else
@@ -112,12 +107,12 @@ install_nvm() {
 install_node_v20() {
     check_nvm
 
-    nvm_path=$(which nvm)
+    nvm_path=$(command which nvm &> /dev/null)
 
     echo "nvm_path: ${nvm_path}"
     "${nvm_path}" install 20
 
-    if [ $? -eq 0 ]; then
+    if ! command which nvm &> /dev/null; then
         echo "Successfully installed Node.js v20."
         ${nvm_path} use 20
     else
@@ -128,6 +123,7 @@ install_node_v20() {
 
 
 function run(){
+    sudo su
     git clone https://github.com/RiemaLabs/zkevm-contracts.git ./contracts
     check_zkevmnode
     check_availnode
