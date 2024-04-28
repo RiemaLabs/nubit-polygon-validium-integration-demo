@@ -44,6 +44,11 @@ runavailnode: ## Runs a full node
 .PHONY: run
 run: ## Runs a full node
 	@./run.sh
+	sleep 3
+	@echo "Generating genesis"
+	@./genesis.sh
+	sleep 3
+	@echo "Starting services"
 	$(RUNAVAILNODE)
 	sleep 10
 	$(RUNSTATEDB)

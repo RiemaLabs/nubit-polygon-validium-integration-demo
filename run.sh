@@ -13,7 +13,7 @@ function check_zkevmnode(){
     else
        echo "Docker image ${image_name}:${image_tag} does not exist."
 
-       cd  ./cdk-validium-node && make build-docker
+       cd  ./validium-node && make build-docker
     fi
 }
 
@@ -58,6 +58,8 @@ function check_geth_evm(){
        sleep 2
 
        docker image tag hermeznetwork/geth-zkevm-contracts hermeznetwork/geth-cdk-validium-contracts:20240420
+
+
 
     fi
 }
