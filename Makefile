@@ -47,31 +47,31 @@ run: ## Runs a full node
 	sleep 3
 	@echo "Generating genesis"
 	@./genesis.sh
-	sleep 3
-	@echo "Starting services"
-	$(RUNAVAILNODE)
-	sleep 10
-	$(RUNSTATEDB)
-	$(RUNPOOLDB)
-	$(RUNEVENTDB)
-	$(RUNL1NETWORK)
-	sleep 1
-	$(RUNZKPROVER)
-	$(RUNAPPROVE)
-	sleep 3
-	$(RUNSYNC)
-	sleep 4
-	$(RUNETHTXMANAGER)
-	$(RUNSEQUENCER)
-	$(RUNSEQUENCESENDER)
-	$(RUNL2GASPRICER)
-	$(RUNAGGREGATOR)
-	$(RUNJSONRPC)
+#	sleep 3
+#	@echo "Starting services"
+#	$(RUNAVAILNODE)
+#	sleep 10
+#	$(RUNSTATEDB)
+#	$(RUNPOOLDB)
+#	$(RUNEVENTDB)
+#	$(RUNL1NETWORK)
+#	sleep 1
+#	$(RUNZKPROVER)
+#	$(RUNAPPROVE)
+#	sleep 3
+#	$(RUNSYNC)
+#	sleep 4
+#	$(RUNETHTXMANAGER)
+#	$(RUNSEQUENCER)
+#	$(RUNSEQUENCESENDER)
+#	$(RUNL2GASPRICER)
+#	$(RUNAGGREGATOR)
+#	$(RUNJSONRPC)
 
 
 .PHONY: stop
 stop: ## Stops all services
-	$(STOP)
+	cd ./validium-node && make stop
 
 
 build-docker: ## Builds a docker image with the node binary

@@ -40,6 +40,10 @@ function generate_genesis() {
     update_genesis_json 'root' "$root"
     update_genesis_json_obj 'genesis' "$genesis"
 
+    sleep 3
+
+    cd ./validium-node/test/ && make run
+
 }
 
 update_genesis_json_number() {
