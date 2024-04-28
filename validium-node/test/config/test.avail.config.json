@@ -1,0 +1,7 @@
+{
+  "seed": "lawn sausage planet crop shine plate economy moment myth galaxy object daughter",
+  "ws_api_url": "ws://172.31.37.21:9944",
+  "http_api_url": "http://172.31.37.21:9944",
+  "app_id": 1,
+  "timeout": 30
+}
