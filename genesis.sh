@@ -5,7 +5,7 @@ function generate_genesis() {
     check_jq
     deploy_output=${work}/contracts/docker/deploymentOutput/deploy_output.json
     genesis=${work}/contracts/docker/deploymentOutput/genesis.json
-#     create_rollup_output=${work}/contracts/docker/deploymentOutput/create_rollup_output.json
+    create_rollup_output=${work}/contracts/docker/deploymentOutput/create_rollup_output.json
 
 #     l1Config.polygonZkEVMAddress ==> rollupAddress @ create_rollup_output.json
 #     l1Config.polygonRollupManagerAddress ==> polygonRollupManager @ deploy_output.json
