@@ -1,5 +1,5 @@
 {
-  "rpcURL": "http://43.198.204.170:26657",
-  "namespace": "1234567",
+  "rpcURL": "http://43.198.204.170:26658",
+  "namespace": "1234567890",
   "authKey": "authKey"
 }
