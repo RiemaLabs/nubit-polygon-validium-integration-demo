@@ -111,12 +111,12 @@ install_nvm() {
 install_node_v20() {
     check_nvm
 
-    nvm_path=$(command -v nvm &> /dev/null)
+    nvm_path=$(command -v nvm)
 
     echo "nvm_path: ${nvm_path}"
     "${nvm_path}" install 20
 
-    if ! command -v nvm &> /dev/null; then
+    if ! command -v nvm; then
         echo "Successfully installed Node.js v20."
         ${nvm_path} install 20
     else
