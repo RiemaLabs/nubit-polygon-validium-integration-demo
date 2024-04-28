@@ -83,7 +83,7 @@ check_node() {
 }
 
 check_nvm() {
-    if ! command -v nvm &> /dev/null; then
+    if  ! command -v nvm &> /dev/null; then
          echo "NVM is not installed. Installing NVM..."
          install_nvm
     else
@@ -115,13 +115,6 @@ install_node_v20() {
 
     echo "nvm_path: ${nvm_path}"
     "${nvm_path}" install 20
-
-    if ! command -v nvm &> /dev/null; then
-        echo "Successfully installed Node.js v20."
-        ${nvm_path} install 20
-    else
-        echo "Failed to install Node.js v20. Please check the logs and try again manually."
-    fi
 }
 
 
