@@ -32,9 +32,9 @@ services:
       - ZKEVM_NODE_MTCLIENT_URI=${ZKEVM_NODE_MTCLIENT_URI}
       - ZKEVM_NODE_EXECUTOR_URI=${ZKEVM_NODE_EXECUTOR_URI}
     volumes:
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./:/datastreamer
     command:
       - "/bin/sh"
@@ -56,10 +56,10 @@ services:
       - ZKEVM_NODE_MTCLIENT_URI=${ZKEVM_NODE_MTCLIENT_URI}
       - ZKEVM_NODE_EXECUTOR_URI=${ZKEVM_NODE_EXECUTOR_URI}
     volumes:
-      - ./cdk-validium-node/test/sequencer.keystore:/pk/sequencer.keystore
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/sequencer.keystore:/pk/sequencer.keystore
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -83,9 +83,9 @@ services:
       - ZKEVM_NODE_MTCLIENT_URI=${ZKEVM_NODE_MTCLIENT_URI}
       - ZKEVM_NODE_EXECUTOR_URI=${ZKEVM_NODE_EXECUTOR_URI}
     volumes:
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -107,8 +107,8 @@ services:
       - ZKEVM_NODE_EXECUTOR_URI=${ZKEVM_NODE_EXECUTOR_URI}
       - ZKEVM_NODE_ETHERMAN_URL=http://zkevm-v1tov2-l1-network:8545
     volumes:
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis-v1tov2.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis-v1tov2.config.json:/app/genesis.json
     command:
       - "/bin/sh"
       - "-c"
@@ -126,10 +126,10 @@ services:
       - ZKEVM_NODE_STATE_DB_HOST=zkevm-state-db
       - ZKEVM_NODE_AGGREGATOR_SENDER_ADDRESS=0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
     volumes:
-      - ./cdk-validium-node/test/sequencer.keystore:/pk/sequencer.keystore
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/sequencer.keystore:/pk/sequencer.keystore
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -151,9 +151,9 @@ services:
       - ZKEVM_NODE_MTCLIENT_URI=${ZKEVM_NODE_MTCLIENT_URI}
       - ZKEVM_NODE_EXECUTOR_URI=${ZKEVM_NODE_EXECUTOR_URI}
     volumes:
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -173,11 +173,11 @@ services:
     environment:
       - ZKEVM_NODE_STATE_DB_HOST=zkevm-state-db
     volumes:
-      - ./cdk-validium-node/test/sequencer.keystore:/pk/sequencer.keystore
-      - ./cdk-validium-node/test/aggregator.keystore:/pk/aggregator.keystore
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/sequencer.keystore:/pk/sequencer.keystore
+      - ./validium-node/test/aggregator.keystore:/pk/aggregator.keystore
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -193,10 +193,10 @@ services:
     environment:
       - ZKEVM_NODE_POOL_DB_HOST=zkevm-pool-db
     volumes:
-      - ./cdk-validium-node/test/test.keystore:/pk/keystore
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/test.keystore:/pk/keystore
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -217,7 +217,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./cdk-validium-node/db/scripts/init_prover_db.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./validium-node/db/scripts/init_prover_db.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - POSTGRES_USER=state_user
       - POSTGRES_PASSWORD=state_password
@@ -263,7 +263,7 @@ services:
     ports:
       - 5435:5432
     volumes:
-      - ./cdk-validium-node/db/scripts/init_event_db.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./validium-node/db/scripts/init_event_db.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - POSTGRES_USER=event_user
       - POSTGRES_PASSWORD=event_password
@@ -349,7 +349,7 @@ services:
       - 50061:50061 # MT
       - 50071:50071 # Executor
     volumes:
-      - ./cdk-validium-node/test/config/test.prover.config.json:/usr/src/app/config.json
+      - ./validium-node/test/config/test.prover.config.json:/usr/src/app/config.json
     environment:
       - EXPERIMENTAL_DOCKER_DESKTOP_FORCE_QEMU=1
     command: >
@@ -363,10 +363,10 @@ services:
     environment:
       - ZKEVM_NODE_STATE_DB_HOST=zkevm-state-db
     volumes:
-      - ./cdk-validium-node/test/sequencer.keystore:/pk/keystore
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/sequencer.keystore:/pk/keystore
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
     command:
       - "/bin/sh"
       - "-c"
@@ -388,7 +388,7 @@ services:
     ports:
       - 5434:5432
     volumes:
-      - ./cdk-validium-node/db/scripts/single_db_server.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./validium-node/db/scripts/single_db_server.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - POSTGRES_USER=test_user
       - POSTGRES_PASSWORD=test_password
@@ -420,8 +420,8 @@ services:
       - ZKEVM_NODE_MTCLIENT_URI=zkevm-permissionless-prover:50061
       - ZKEVM_NODE_EXECUTOR_URI=zkevm-permissionless-prover:50071
     volumes:
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
     command:
       - "/bin/sh"
       - "-c"
@@ -438,7 +438,7 @@ services:
       - 50068:50061 # MT
       - 50078:50071 # Executor
     volumes:
-      - ./cdk-validium-node/test/config/test.permissionless.prover.config.json:/usr/src/app/config.json
+      - ./validium-node/test/config/test.permissionless.prover.config.json:/usr/src/app/config.json
     command: >
       zkProver -c /usr/src/app/config.json
     networks:
@@ -454,7 +454,7 @@ services:
       - --config.file=/etc/prometheus/prometheus.yml
       - --web.enable-lifecycle
     volumes:
-      - ./cdk-validium-node/config/metrics/prometheus:/etc/prometheus
+      - ./validium-node/config/metrics/prometheus:/etc/prometheus
     networks:
       - avial
 
@@ -467,9 +467,9 @@ services:
       - ZKEVM_NODE_STATE_DB_HOST=zkevm-state-db
       - ZKEVM_NODE_POOL_DB_HOST=zkevm-pool-db
     volumes:
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./cdk-validium-node/test/config/test.avail.config.json:/app/avail-config.json
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
     command:
       - "/bin/sh"
     networks:
@@ -496,8 +496,8 @@ services:
       - ZKEVM_NODE_MTCLIENT_URI=zkevm-permissionless-prover:50061
       - ZKEVM_NODE_EXECUTOR_URI=zkevm-permissionless-prover:50071
     volumes:
-      - ./cdk-validium-node/test/config/test.node.config.toml:/app/config.toml
-      - ./cdk-validium-node/test/config/test.genesis.config.json:/app/genesis.json
+      - ./validium-node/test/config/test.node.config.toml:/app/config.toml
+      - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
     command:
       - "/bin/sh"
       - "-c"
