@@ -123,7 +123,6 @@ install_node_v20() {
 
 
 function run(){
-    sudo su
     git clone https://github.com/RiemaLabs/zkevm-contracts.git ./contracts
     check_zkevmnode
     check_availnode
