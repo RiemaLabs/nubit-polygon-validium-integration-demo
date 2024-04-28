@@ -29,17 +29,25 @@ function generate_genesis() {
     root=$(cat "$genesis" | jq -r '.root')
     genesis=$(cat "$genesis" | jq -c '.genesis')
 
-    update_genesis_json 'rollupCreationBlockNumber' "$createRollupBlock"
+    update_genesis_json_number 'rollupCreationBlockNumber' "$createRollupBlock"
     update_genesis_json 'l1Config.polygonZkEVMAddress' "$rollupAddress"
 
     update_genesis_json 'l1Config.polygonRollupManagerAddress' "$polygonRollupManager"
     update_genesis_json 'l1Config.polTokenAddress' "$polTokenAddress"
     update_genesis_json 'l1Config.polygonZkEVMGlobalExitRootAddress' "$polygonZkEVMGlobalExitRootAddress"
 
-    update_genesis_json 'rollupManagerCreationBlockNumber' "$deploymentBlockNumber"
+    update_genesis_json_number 'rollupManagerCreationBlockNumber' "$deploymentBlockNumber"
     update_genesis_json 'root' "$root"
     update_genesis_json_obj 'genesis' "$genesis"
 
+}
+
+update_genesis_json_number() {
+    genesis_cfg=${work}/validium-node/test/config/test.genesis.config.json
+    local key="$1"
+    local value="$2"
+    echo "Updating $key to $value in $genesis_cfg"
+    jq --arg val "$value" ".$key = (\$val | tonumber)" "$genesis_cfg" > temp_genesis.json && mv temp_genesis.json "$genesis_cfg"
 }
 
 update_genesis_json() {
