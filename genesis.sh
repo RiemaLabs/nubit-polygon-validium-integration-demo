@@ -42,8 +42,54 @@ function generate_genesis() {
 
     sleep 3
 
+    echo "Please enter the nubit rpcURL:"
+    read rpcURL
+    echo "Please enter the new modularAppName:"
+    read modularAppName
+    echo "Please enter the new authKey:"
+    read authKey
+
+    echo "$rpcURL"
+    echo "$modularAppName"
+    echo "$authKey"
+
+    if [ -n "$rpcURL" ]; then
+        update_nubit_config 'rpcURL' "$rpcURL"
+    else
+        echo "rpcURL cannot be empty."
+    fi
+
+    sleep 2
+
+    if [ -n "$modularAppName" ]; then
+        update_nubit_config 'modularAppName' "$modularAppName"
+    else
+        echo "modularAppName cannot be empty."
+    fi
+
+    sleep 2
+
+    if [ -n "$authKey" ]; then
+        update_nubit_config 'authKey' "$authKey"
+    else
+        echo "authKey cannot be empty."
+    fi
+
+    sleep 3
+
     cd ./cdk-validium-node/test/ && make run
 
+}
+
+update_nubit_config() {
+    local key="$1"
+    local value="$2"
+    local json_file=${work}/cdk-validium-node/test/config/test.nubit.config.json
+
+    jq --arg key "$key" --arg value "$value" '.[$key] = $value' "$json_file" > tmp.json && \
+        mv tmp.json "$json_file" && \
+        echo "Value for key '$key' successfully updated to '$value'" || \
+        echo "Failed to update the value for key '$key'"
 }
 
 update_genesis_json_number() {
@@ -88,4 +134,8 @@ check_jq() {
     fi
 }
 
-generate_genesis
+
+
+if [[ "$0" == "$BASH_SOURCE" ]]; then
+    generate_genesis
+fi

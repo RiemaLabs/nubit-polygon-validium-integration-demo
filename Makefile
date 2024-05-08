@@ -71,7 +71,7 @@ run: ## Runs a full node
 
 .PHONY: stop
 stop: ## Stops all services
-	cd ./validium-node && make stop
+	cd ./cdk-validium-node/test && make stop
 
 
 build-docker: ## Builds a docker image with the node binary
