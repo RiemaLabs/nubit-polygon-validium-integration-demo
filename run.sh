@@ -15,7 +15,7 @@ function check_zkevmnode(){
 
        git clone https://github.com/RiemaLabs/cdk-validium-node.git
 
-       cd  ./cdk-validium-node && make build-docker
+       cd  ./validium-node && make build-docker
     fi
 }
 

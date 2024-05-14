@@ -77,14 +77,14 @@ function generate_genesis() {
 
     sleep 3
 
-    cd ./cdk-validium-node/test/ && make run
+    cd ./validium-node/test/ && make run
 
 }
 
 update_nubit_config() {
     local key="$1"
     local value="$2"
-    local json_file=${work}/cdk-validium-node/test/config/test.nubit.config.json
+    local json_file=${work}/validium-node/test/config/test.nubit.config.json
 
     jq --arg key "$key" --arg value "$value" '.[$key] = $value' "$json_file" > tmp.json && \
         mv tmp.json "$json_file" && \
@@ -93,7 +93,7 @@ update_nubit_config() {
 }
 
 update_genesis_json_number() {
-    genesis_cfg=${work}/cdk-validium-node/test/config/test.genesis.config.json
+    genesis_cfg=${work}/validium-node/test/config/test.genesis.config.json
     local key="$1"
     local value="$2"
     echo "Updating $key to $value in $genesis_cfg"
@@ -101,7 +101,7 @@ update_genesis_json_number() {
 }
 
 update_genesis_json() {
-    genesis_cfg=${work}/cdk-validium-node/test/config/test.genesis.config.json
+    genesis_cfg=${work}/validium-node/test/config/test.genesis.config.json
     local key="$1"
     local value="$2"
     echo "Updating $key to $value in $genesis_cfg"
@@ -109,7 +109,7 @@ update_genesis_json() {
 }
 
 update_genesis_json_obj() {
-    genesis_cfg=${work}/cdk-validium-node/test/config/test.genesis.config.json
+    genesis_cfg=${work}/validium-node/test/config/test.genesis.config.json
     local key="$1"
     local value="$2"
     echo "Updating $key to $value in $genesis_cfg"
