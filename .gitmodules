@@ -1,0 +1,6 @@
+[submodule "zkevm-contracts"]
+	path = zkevm-contracts
+	url = https://github.com/RiemaLabs/zkevm-contracts.git
+[submodule "validium-node"]
+	path = validium-node
+	url = https://github.com/RiemaLabs/cdk-validium-node.git
