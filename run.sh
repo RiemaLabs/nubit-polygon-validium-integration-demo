@@ -18,26 +18,6 @@ function check_zkevmnode(){
 }
 
 
-# cd ../
-
-function check_availnode(){
-    cd ${work}
-    availnode_name="availnode"
-
-    availnode_exists=$(docker image ls --format "{{.Repository}}:{{.Tag}}" | grep "^${availnode_name}:${image_tag}$")
-
-    if [ -n "${availnode_exists}" ]; then
-        echo "Docker image ${availnode_name}:${image_tag} exists."
-    else
-       echo "Docker image ${availnode_name}:${image_tag} does not exist."
-
-       git clone https://github.com/availproject/avail.git
-
-       cd ./avail && docker build -t availnode -f ./dockerfiles/avail-node.Dockerfile .
-    fi
-}
-
-
 
 function check_geth_evm(){
     cd ${work}
@@ -124,7 +104,6 @@ function run(){
     git clone https://github.com/RiemaLabs/cdk-validium-node.git ./cdk-validium-node
     git clone https://github.com/RiemaLabs/zkevm-contracts.git ./contracts
     check_zkevmnode
-    check_availnode
     check_geth_evm
 }
 

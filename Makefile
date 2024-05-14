@@ -12,7 +12,6 @@ DOCKERCOMPOSEAPPSEQSENDER := zkevm-sequence-sender
 DOCKERCOMPOSEAPPL2GASP := zkevm-l2gaspricer
 DOCKERCOMPOSEAPPAGG := zkevm-aggregator
 DOCKERCOMPOSEAPPRPC := zkevm-json-rpc
-DOCKERCOMPOSEAVAILNODE := availnode
 
 RUNSTATEDB := $(DOCKERCOMPOSE) up -d $(DOCKERCOMPOSESTATEDB)
 RUNPOOLDB := $(DOCKERCOMPOSE) up -d $(DOCKERCOMPOSEPOOLDB)
@@ -32,13 +31,8 @@ RUNL2GASPRICER := $(DOCKERCOMPOSE) up -d $(DOCKERCOMPOSEAPPL2GASP)
 RUNAGGREGATOR := $(DOCKERCOMPOSE) up -d $(DOCKERCOMPOSEAPPAGG)
 RUNJSONRPC := $(DOCKERCOMPOSE) up -d $(DOCKERCOMPOSEAPPRPC)
 
-RUNAVAILNODE := $(DOCKERCOMPOSE) up -d $(DOCKERCOMPOSEAVAILNODE)
-
 
 STOP := $(DOCKERCOMPOSE) down --remove-orphans
-
-.PHONY: runavailnode
-runavailnode: ## Runs a full node
 
 
 .PHONY: run
@@ -47,26 +41,6 @@ run: ## Runs a full node
 	sleep 3
 	@echo "Generating genesis"
 	@./genesis.sh
-#	sleep 3
-#	@echo "Starting services"
-#	$(RUNAVAILNODE)
-#	sleep 10
-#	$(RUNSTATEDB)
-#	$(RUNPOOLDB)
-#	$(RUNEVENTDB)
-#	$(RUNL1NETWORK)
-#	sleep 1
-#	$(RUNZKPROVER)
-#	$(RUNAPPROVE)
-#	sleep 3
-#	$(RUNSYNC)
-#	sleep 4
-#	$(RUNETHTXMANAGER)
-#	$(RUNSEQUENCER)
-#	$(RUNSEQUENCESENDER)
-#	$(RUNL2GASPRICER)
-#	$(RUNAGGREGATOR)
-#	$(RUNJSONRPC)
 
 
 .PHONY: stop
