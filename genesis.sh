@@ -2,6 +2,9 @@
 
 work=$(pwd)
 function generate_genesis() {
+    check_network
+    sleep 3
+
     check_jq
     deploy_output=${work}/contracts/docker/deploymentOutput/deploy_output.json
     genesis=${work}/contracts/docker/deploymentOutput/genesis.json
@@ -132,6 +135,17 @@ check_jq() {
     else
         echo "jq is already installed."
     fi
+}
+
+check_network(){
+   NETWORK_NAME="nubitnetwork"
+
+   if ! docker network inspect "$NETWORK_NAME" &> /dev/null; then
+       echo "Network '$NETWORK_NAME' not found. Creating network."
+       docker network create "$NETWORK_NAME"
+   else
+       echo "Network '$NETWORK_NAME' already exists."
+   fi
 }
 
 
