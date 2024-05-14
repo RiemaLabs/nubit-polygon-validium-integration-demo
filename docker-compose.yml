@@ -1,25 +1,9 @@
 version: "3.5"
 networks:
-  avial:
+  nubit-polygoncdk:
     external: true
 
 services:
-
-  availnode:
-    container_name: availnode
-    image: availnode:latest
-    ports:
-      - 30333:30333
-      - 9944:9944
-    volumes:
-      - ./output:/output availnode
-    command:
-      - "--dev"
-      - "--rpc-methods=unsafe"
-      - "--unsafe-rpc-external"
-      - "--rpc-cors=all"
-    networks:
-      - avial
 
   zkevm-sequencer:
     container_name: zkevm-sequencer
@@ -36,7 +20,6 @@ services:
     volumes:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
       - ./:/datastreamer
     command:
@@ -44,7 +27,7 @@ services:
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components sequencer"
     networks:
-      - avial
+      - nubit-polygoncdk
 
 
 
@@ -62,14 +45,13 @@ services:
       - ./validium-node/test/sequencer.keystore:/pk/sequencer.keystore
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components sequence-sender"
     networks:
-      - avial
+      - nubit-polygoncdk
 
 
 
@@ -89,14 +71,13 @@ services:
     volumes:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components rpc"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-json-rpc-v1tov2:
     container_name: zkevm-json-rpc-v1tov2
@@ -119,7 +100,7 @@ services:
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components rpc"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-aggregator:
     container_name: zkevm-aggregator
@@ -134,14 +115,13 @@ services:
       - ./validium-node/test/sequencer.keystore:/pk/sequencer.keystore
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components aggregator"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-sync:
     container_name: zkevm-sync
@@ -155,14 +135,13 @@ services:
     volumes:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components synchronizer"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-eth-tx-manager:
     container_name: zkevm-eth-tx-manager
@@ -176,14 +155,13 @@ services:
       - ./validium-node/test/aggregator.keystore:/pk/aggregator.keystore
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components eth-tx-manager"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-l2gaspricer:
     container_name: zkevm-l2gaspricer
@@ -194,14 +172,13 @@ services:
       - ./validium-node/test/test.keystore:/pk/keystore
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components l2gaspricer"
     networks:
-      - avial
+      - nubit-polygoncdk
 
 
   zkevm-state-db:
@@ -226,7 +203,7 @@ services:
       - "-N"
       - "500"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-pool-db:
     container_name: zkevm-pool-db
@@ -248,7 +225,7 @@ services:
       - "-N"
       - "500"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-event-db:
     container_name: zkevm-event-db
@@ -272,7 +249,7 @@ services:
       - "-N"
       - "500"
     networks:
-      - avial
+      - nubit-polygoncdk
 
 
 
@@ -307,7 +284,7 @@ services:
       - "full"
       - "--rpc.allow-unprotected-txs"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-v1tov2-l1-network:
     container_name: zkevm-v1tov2-l1-network
@@ -339,7 +316,7 @@ services:
       - "full"
       - "--rpc.allow-unprotected-txs"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-prover:
     container_name: zkevm-prover
@@ -354,7 +331,7 @@ services:
     command: >
       zkProver -c /usr/src/app/config.json
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-approve:
     container_name: zkevm-approve
@@ -365,14 +342,13 @@ services:
       - ./validium-node/test/sequencer.keystore:/pk/keystore
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
       - "-c"
       - "/app/zkevm-node approve --network custom --custom-network-file /app/genesis.json --key-store-path /pk/keystore --pw testonly --am 115792089237316195423570985008687907853269984665640564039457584007913129639935 -y --cfg /app/config.toml"
     networks:
-      - avial
+      - nubit-polygoncdk
 
 
 
@@ -398,7 +374,7 @@ services:
       - "-N"
       - "500"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-permissionless-node:
     container_name: zkevm-permissionless-node
@@ -427,7 +403,7 @@ services:
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components \"rpc,synchronizer\""
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-permissionless-prover:
     container_name: zkevm-permissionless-prover
@@ -442,7 +418,7 @@ services:
     command: >
       zkProver -c /usr/src/app/config.json
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-metrics:
     image: prom/prometheus:v2.39.1
@@ -456,7 +432,7 @@ services:
     volumes:
       - ./validium-node/config/metrics/prometheus:/etc/prometheus
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-sh:
     container_name: zkevm-sh
@@ -469,12 +445,11 @@ services:
     volumes:
       - ./validium-node/test/config/test.node.config.toml:/app/config.toml
       - ./validium-node/test/config/test.genesis.config.json:/app/genesis.json
-      - ./validium-node/test/config/test.avail.config.json:/app/avail-config.json
       - ./validium-node/test/config/test.nubit.config.json:/app/nubit-config.json
     command:
       - "/bin/sh"
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-node-forced-DAC:
     container_name: zkevm-node-forced-DAC
@@ -504,7 +479,7 @@ services:
       - "-c"
       - "/app/zkevm-node run --network custom --custom-network-file /app/genesis.json --cfg /app/config.toml --components \"rpc,synchronizer\""
     networks:
-      - avial
+      - nubit-polygoncdk
 
   zkevm-data-node-db:
     container_name: zkevm-data-node-db
@@ -526,4 +501,4 @@ services:
       - "-N"
       - "500"
     networks:
-      - avial
+      - nubit-polygoncdk
