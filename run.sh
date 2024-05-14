@@ -13,9 +13,7 @@ function check_zkevmnode(){
     else
        echo "Docker image ${image_name}:${image_tag} does not exist."
 
-       git clone https://github.com/RiemaLabs/cdk-validium-node.git
-
-       cd  ./validium-node && make build-docker
+       cd  ./cdk-validium-node && make build-docker
     fi
 }
 
@@ -123,6 +121,7 @@ install_node_v20() {
 
 
 function run(){
+    git clone https://github.com/RiemaLabs/cdk-validium-node.git ./cdk-validium-node
     git clone https://github.com/RiemaLabs/zkevm-contracts.git ./contracts
     check_zkevmnode
     check_availnode
